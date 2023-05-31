@@ -14,5 +14,10 @@ public class UserServiceImpl implements UserService{
         repo.save(user);
     } //實作註冊方法的內容:存在repo裡
 
+    @Override
+    public boolean checkMemAccount(String memAccount) {
+        return repo.existsByMemAccount(memAccount);
+    }
+
 
 }

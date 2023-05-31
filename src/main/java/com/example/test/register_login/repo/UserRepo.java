@@ -9,4 +9,5 @@ import java.util.Optional;
 @Repository
 public interface UserRepo extends JpaRepository<User, Integer> { //繼承了JPA就可以使用JPA裡面的原生function，裡面存<實體,主鍵>
     Optional<User> findByMemAccount(String memAccount);
+    public boolean existsByMemAccount(String memAccount);
 }
