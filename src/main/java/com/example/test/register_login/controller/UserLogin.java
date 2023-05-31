@@ -1,18 +1,14 @@
-package com.example.test.controller;
+package com.example.test.register_login.controller;
 
 
-import com.example.test.entity.User;
-import com.example.test.repo.UserRepo;
-import com.example.test.service.AES256Util;
+import com.example.test.register_login.entity.User;
+import com.example.test.register_login.repo.UserRepo;
+import com.example.test.register_login.service.AES256Util;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.beans.BeanProperty;
-import java.beans.beancontext.BeanContext;
 import java.util.Optional;
 
 @Controller

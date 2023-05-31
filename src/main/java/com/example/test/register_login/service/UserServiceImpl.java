@@ -1,10 +1,9 @@
-package com.example.test.service;
+package com.example.test.register_login.service;
 
-import com.example.test.entity.User;
-import com.example.test.repo.UserRepo;
+import com.example.test.register_login.entity.User;
+import com.example.test.register_login.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 @Service
 public class UserServiceImpl implements UserService{

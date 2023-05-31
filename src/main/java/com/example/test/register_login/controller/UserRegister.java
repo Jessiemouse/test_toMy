@@ -1,16 +1,12 @@
-package com.example.test.controller;
+package com.example.test.register_login.controller;
 
-import com.example.test.entity.User;
-import com.example.test.service.AES256Util;
-import com.example.test.service.UserService;
+import com.example.test.register_login.entity.User;
+import com.example.test.register_login.service.AES256Util;
+import com.example.test.register_login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
 
 @Controller
 public class UserRegister {
