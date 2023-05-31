@@ -1,0 +1,506 @@
+@charset "utf-8";
+/*
+=======================================
+  Reset CSS
+=======================================
+*/
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+img {
+  border: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img,
+input,
+select,
+textarea {
+  vertical-align: middle;
+}
+
+/* 邊界
+---------------------------------*/
+.mb0 {
+  margin-bottom: 0 !important;
+}
+.mb5 {
+  margin-bottom: 5px !important;
+}
+.mb10 {
+  margin-bottom: 10px !important;
+}
+.mb15 {
+  margin-bottom: 15px !important;
+}
+.mb20 {
+  margin-bottom: 20px !important;
+}
+.mb25 {
+  margin-bottom: 25px !important;
+}
+.mb30 {
+  margin-bottom: 30px !important;
+}
+.mb35 {
+  margin-bottom: 35px !important;
+}
+.mb40 {
+  margin-bottom: 40px !important;
+}
+.mb45 {
+  margin-bottom: 45px !important;
+}
+.mb50 {
+  margin-bottom: 50px !important;
+}
+
+/* 水平對齊
+---------------------------------*/
+.ta-l {
+  text-align: left;
+}
+.ta-r {
+  text-align: right;
+}
+.ta-c {
+  text-align: center;
+}
+
+/* 設定／解除Float
+---------------------------------*/
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.fl-img {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.fr-img {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.clear {
+  clear: both;
+}
+
+/* clearfix */
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 導航列和頁尾
+---------------------------------*/
+/* 字型 */
+body.TeacherWanted {
+  /* font-family: Microsoft JhengHei; */
+  /* font-family: "Nunito", sans-serif; */
+  font-size: 1.1rem;
+  /* font-weight: bolder; */
+  box-sizing: border-box;
+  /* 
+  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace; */
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  height: 100%;
+}
+
+main.TeacherWanted {
+  /* background: url(/img/backgroundPic.jpg); */
+  background-size: cover;
+}
+/* container 外層框架 */
+.containerBase,
+.containerFooter,
+.containerHearder {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1140px;
+}
+/* 
+@media (min-width: 576px) {
+  .container,
+  .container-sm,
+  .container-footer,
+  .containerHearder {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-footer,
+  .containerHearder {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-footer,
+  .containerHearder {
+    max-width: 960px;
+  }
+} */
+
+/* @media (min-width: 1200px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    max-width: 1300px;
+  }
+  .containerHearder {
+    max-width: 1300px;
+  }
+  .container-footer {
+    max-width: 1300px;
+  }
+} */
+
+/* 圖片設定 */
+img {
+  border: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navBar {
+  background-color: #f8f9fa;
+  color: #666666;
+}
+
+.navBar a {
+  text-decoration: none;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 100%;
+  /* color: #666666; */
+  color: #3c6a36;
+}
+.navBar a:hover {
+  color: #a4c964;
+}
+
+/* a:link {
+  　//設定還沒瀏覽過的連結樣式
+  }
+  a:visited {
+  　//設定已經瀏覽過的連結樣式
+  }
+  a:hover {
+  　//設定滑鼠移到連結上的樣式
+  }
+  a:active {
+  　//設定正在被點選的連結樣式
+  } */
+.flexWrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flexHorizontalCenter {
+  display: flex;
+  justify-content: center;
+}
+.flexVerticalCenter {
+  display: flex;
+  align-items: center;
+}
+
+.flexAllCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnCss {
+  background-color: #a4c964;
+  border-radius: 30px;
+  line-height: 1.15;
+  width: 100px;
+  margin: 3px 10px;
+}
+
+.btnCss:hover {
+  background-color: #8baa54;
+}
+
+.filter-green {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg)
+    brightness(118%) contrast(119%);
+}
+
+#navSearch {
+  margin: 3px 5px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+#navSearch input {
+  display: block;
+  width: 190px;
+  height: 30px;
+  border-radius: 0px 5px 5px 0px;
+  margin-right: 10px;
+  border-style: none;
+
+  /* outline: none; */
+  /* border-color: #3c6a36; */
+}
+#navSearch input:focus {
+  /* box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.25); */
+  outline-color: #3c6a36;
+}
+
+#navSearch img {
+  height: 20px;
+  position: relative;
+  right: 35px;
+  cursor: pointer;
+}
+
+#navSearch select {
+  width: 60px;
+  height: 30px;
+  border-style: none;
+  border-radius: 5px 0px 0px 5px;
+}
+
+#navSearch select:focus {
+  outline-color: #3c6a36;
+}
+
+.col_25 {
+  width: 25%;
+}
+.col_33 {
+  width: 33%;
+}
+.col_34 {
+  width: 34%;
+}
+
+.imgIntroduce {
+  height: 30px;
+  border: #a4c964 1px solid;
+  border-radius: 50%;
+  padding: 5px;
+  margin-right: 5px;
+}
+.imgIntroduce:hover {
+  border: #ffffff 1px solid;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.webMapLink {
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.mobileHave {
+  display: none;
+}
+._col_10,
+._col_90 {
+  width: 100%;
+}
+
+@media screen and (max-width: 855px) {
+  .miniMobile {
+    display: none;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .col_33,
+  .col_34 {
+    width: 100%;
+  }
+  .footerMobile {
+    display: none;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .mobileHave {
+    display: block;
+  }
+
+  .pcHave {
+    display: none;
+  }
+  ._col_10 {
+    width: 10%;
+  }
+  ._col_90 {
+    width: 90%;
+  }
+}
+#mySidebar img {
+  margin: 0 auto;
+  height: 50px;
+}
+#mySidebar a {
+  height: 50px;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #a4c964;
+}
+#mySidebar a:hover {
+  background-color: rgb(212, 212, 212);
+}
+#mySidebar {
+  position: fixed;
+  top: 0px;
+  left: -200px;
+  height: 100%;
+  width: 200px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1130px) {
+  #mySidebar {
+    left: -200px !important;
+  }
+}
+header.TeacherWanted {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+main.TeacherWanted {
+  padding-top: 95px;
+}
+
+.webMap li a:hover {
+  color: white;
+}

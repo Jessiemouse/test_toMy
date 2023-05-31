@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- bootstrap相關 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <!-- bootstrap相關 -->
+
+    <link href="css/baseVer2.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="jquery/jquery-3.6.4.min.js"></script>
+    <script src="js/base.js"></script>
+
+    <!-- from kinder -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary p-3 back-to-top"
+      ><i class="fa fa-angle-double-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <title>Document</title>
+  </head>
+  <body class="TeacherWanted">
+    <!-- 手機板導引列(粗糙) -->
+    <header class="TeacherWanted">
+      <div id="mySidebar">
+        <img src="img/base/logo.png" alt="" />
+        <a href="#" class="">首頁</a>
+        <a href="#" class="">課程</a>
+        <a href="#" class="">活動</a>
+        <a href="#" class="">許願池</a>
+        <a href="#" class="">論壇</a>
+        <a href="#" class="">商城</a>
+      </div>
+      <div class="navBar">
+        <ul class="containerHearder flexWrap flexVerticalCenter">
+          <li>
+            <img
+              src="img/base/menu.png"
+              id="phoneMenu"
+              class="mobileHave"
+              style="height: 30px; margin: 10px"
+              alt=""
+            />
+          </li>
+
+          <li
+            class="flexWrap flexAllCenter"
+            style="font-size: 50px; color: #a4c964; margin: 10px 0px"
+          >
+            <img
+              src="img/base/logo.png"
+              class="miniMobile"
+              style="height: 50px; margin: 0px 5px"
+              alt=""
+            />
+            <p>懸賞啼雀</p>
+          </li>
+          <li
+            class="flexWrap"
+            style="
+              flex-grow: 1;
+              display: flex;
+              align-items: center;
+              justify-content: end;
+            "
+          >
+            <!-- 電腦版導引列 -->
+            <div
+              id="navLink"
+              class="flexWrap flexAllCenter pcHave"
+              style="flex-grow: 1"
+            >
+              <a class="flexAllCenter" href="">首頁</a>
+              <a class="flexAllCenter" href="">課程</a>
+              <a class="flexAllCenter" href="">活動</a>
+              <a class="flexAllCenter" href="">許願池</a>
+              <a class="flexAllCenter" href="">論壇</a>
+              <a class="flexAllCenter" href="">商城</a>
+            </div>
+            <div
+              class="flexWrap flexAllCenter"
+              style="position: relative; top: 2px"
+            >
+              <div class="miniMobile">
+                <form id="navSearch" action="">
+                  <select>
+                    <option>課程</option>
+                    <option>活動</option>
+                    <option>商城</option>
+                    <option>許願</option>
+                  </select>
+                  <input type="text" />
+                  <img src="img/base/search.svg" alt="" />
+                </form>
+              </div>
+              <img
+                src="img//base/mailForNavbar.svg"
+                class="miniMobile"
+                style="
+                  height: 30px;
+                  margin: 3px 5px;
+                  cursor: pointer;
+                  position: relative;
+                  bottom: 1px;
+                "
+                alt=""
+              />
+              <img
+                src="img/base/shoppingCart.svg"
+                class="miniMobile"
+                style="height: 30px; margin: 3px 5px; cursor: pointer"
+                alt=""
+              />
+              <img
+                src="img/base/bell.svg"
+                class="miniMobile"
+                style="height: 30px; margin: 3px 5px; cursor: pointer"
+                alt=""
+              />
+
+              <a class="btnCss flexAllCenter" style="color: white" href=""
+                >登入</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="TeacherWanted">
+      <!-- Header Start -->
+      <div
+        class="container-fluid bg-primary px-0 px-md-5 mb-5"
+        style="
+          background-color: rgb(164, 201, 100) !important;
+          display: flex;
+          justify-content: center !important;
+        "
+      >
+        <div class="row align-items-center px-3">
+          <div class="col-6">
+            <h4
+              class="text-white mb-4 mt-5 mt-lg-0"
+              style="
+                font-family: Nunito;
+                font-size: 25px;
+                margin-left: 120px !important;
+              "
+            >
+              The most diverse learning platform
+            </h4>
+            <h1
+              class="display-3 font-weight-bold"
+              style="
+                font-family: Nunito;
+                font-size: 60px;
+                margin-left: 110px;
+                color: rgb(1, 71, 1);
+              "
+              ;
+            >
+              最多元的課程平台
+            </h1>
+            <br />
+            <p
+              class="text-white mb-4"
+              style="
+                font-weight: bold;
+                font-size: 23px;
+                margin-left: 120px;
+                color: rgb(24, 112, 2) !important;
+              "
+            >
+              歡迎來到懸賞啼雀家教平台！
+            </p>
+            <p
+              style="
+                font-weight: bold;
+                font-size: 20px;
+                color: black;
+                margin-left: 120px !important;
+              "
+            >
+              我們提供各種科目和年齡的家教課程，
+              <br />
+              平台上的家教老師都經過嚴格篩選，以確保授課的品質。
+              <br />
+              每位學生都有潛力，我們的課程可以幫助學生發揮最大潛能!
+            </p>
+            <br />
+            <br />
+
+            <div style="display: flex; align-items: center">
+              <input
+                type="text"
+                placeholder="  ...輸入課程關鍵字"
+                style="
+                  margin-left: 120px;
+                  width: 300px;
+                  height: 59px;
+                  border-radius: 5px;
+                  font-size: 22px;
+                  border: 3px solid green;
+                "
+              /><a
+                href=""
+                class="btn btn-secondary mt-1 py-3 px-5"
+                style="border-radius: 10px; font-size: 20px"
+                >搜尋</a
+              >
+            </div>
+          </div>
+
+          <div class="col-6">
+            <img
+              class="img-fluid mt-5"
+              src="img/teacher.png"
+              style="padding: 30px"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Header End -->
+
+      <!-- Facilities Start -->
+      <div class="container-fluid pt-5">
+        <div class="container pb-3">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border-top rounded mb-4"
+                style="padding: 30px"
+              >
+                <i class="flaticon-050-fence h1 mb-3"></i>
+                <div class="pl-4">
+                  <a href=""><h4 style="font-family: Nunito">外語學習</h4></a>
+                  <p class="m-0">
+                    我們擁有英語、法語、德語和日語等堅強師資。您將學到語言的基本結構和詞彙，並練習口語和寫作技巧、文化理解能力。
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border-top rounded mb-4"
+                style="padding: 30px"
+              >
+                <i class="flaticon-022-drum h1 mb-3"></i>
+                <div class="pl-4">
+                  <a href=""><h4 style="font-family: Nunito">音樂課程</h4></a>
+                  <p class="m-0">
+                    想學習演奏樂器和創作音樂嗎?
+                    老師們將帶您學習音樂理論並發展音樂技能和創造力。
+                    <br />
+                    <br />
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border-top rounded mb-4"
+                style="padding: 30px"
+              >
+                <i class="flaticon-030-crayons h1 mb-3"></i>
+                <div class="pl-4">
+                  <a href=""><h4 style="font-family: Nunito">美術課程</h4></a>
+                  <p class="m-0">
+                    在此您可學習如何運用色彩、線條和形狀等元素併用不同形式的美術創作，包括素描、油畫、水彩畫和版畫等。
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border-top rounded mb-4"
+                style="padding: 30px"
+              >
+                <i class="flaticon-017-toy-car h1 mb-3"></i>
+                <div class="pl-4">
+                  <a href=""><h4 style="font-family: Nunito">運動課程</h4></a>
+                  <p class="m-0">
+                    我們有豐富的籃球、足球、排球和游泳等師資。您將學會如何團隊合作、發揮個人潛力，同時促進身體健康。
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border-top rounded mb-4"
+                style="padding: 30px"
+              >
+                <i class="flaticon-025-sandwich h1 mb-3"></i>
+                <div class="pl-4">
+                  <a href=""><h4 style="font-family: Nunito">程式語言</h4></a>
+                  <p class="m-0">
+                    想跟上趨勢，學習程式語言嗎?還分不清前端後端?沒問題!
+                    <br />
+                    老師們會一步一步帶您學習。
+                    <br />
+                    <br />
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border-top rounded mb-4"
+                style="padding: 30px"
+              >
+                <i class="flaticon-047-backpack h1 mb-3"></i>
+                <div class="pl-4">
+                  <a href=""><h4 style="font-family: Nunito">一般學科</h4></a>
+                  <p class="m-0">
+                    加強數學、歷史、地理、化學、國文等學科，到這裡找老師就對了，您將理解更多不同的概念和觀點。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Facilities Start -->
+
+      <!-- About Start -->
+      <div class="container-fluid py-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-5">
+              <img
+                class="img-fluid rounded mb-5 mb-lg-0"
+                src="img/learn1.jpg"
+                alt=""
+              />
+            </div>
+            <div class="col-lg-7">
+              <p class="section-title pr-5" style="color: green">
+                <span class="pr-2" style="color: green">我們的承諾</span>
+                <br />
+                <br />
+              </p>
+              <h1 class="mb-4" style="font-family: Nunito">
+                為您找到合適的師資
+              </h1>
+              <p>
+                我們致力於提供優質的家教服務，讓學生能夠找到最適合他們的老師。<br />立即註冊並開始尋找您的課程吧！
+              </p>
+              <div class="row pt-2 pb-4">
+                <div class="col-6 col-md-4">
+                  <img class="img-fluid rounded" src="img/learn2.jpg" alt="" />
+                </div>
+                <div class="col-6 col-md-8">
+                  <ul class="list-inline m-0">
+                    <li class="py-2 border-top border-bottom">
+                      <i class="fa fa-check text-primary mr-3"></i> 優良師資
+                    </li>
+                    <li class="py-2 border-bottom">
+                      <i class="fa fa-check text-primary mr-3"></i>
+                      收費平價
+                    </li>
+                    <li class="py-2 border-bottom">
+                      <i class="fa fa-check text-primary mr-3"></i>
+                      學習成果顯著
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <br />
+              <a
+                href="student_register.html"
+                class="btn btn-primary mt-2 py-2 px-4"
+                >立即註冊</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- About End -->
+
+      <!-- Class Start -->
+      <div class="container-fluid pt-5">
+        <div class="container">
+          <div class="text-center pb-2">
+            <p class="section-title px-5">
+              <span class="px-2">熱門課程</span>
+              <br />
+              <br />
+            </p>
+            <h1 class="mb-4" style="font-family: Nunito">就業養成班</h1>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 mb-5">
+              <div class="card border-0 bg-light shadow-sm pb-2">
+                <img class="card-img-top mb-2" src="img/java.jpeg" alt="" />
+                <div class="card-body text-center">
+                  <h4 class="card-title">JAVA雲端服務開發</h4>
+                  <p class="card-text">
+                    JAVA雲端服務開發是現代應用程式開發的核心技術，本課程深入講解JAVA後端開發、雲端部署等技能，讓您成為優秀的JAVA雲端服務開發者！
+                  </p>
+                </div>
+                <div class="card-footer bg-transparent py-4 px-5">
+                  <div class="row border-bottom">
+                    <div class="col-6 py-1 text-right border-right">
+                      <strong>適合學習對象</strong>
+                    </div>
+                    <div class="col-6 py-1">22歲以上</div>
+                  </div>
+                  <div class="row border-bottom">
+                    <div class="col-6 py-1 text-right border-right">
+                      <strong>課程型態</strong>
+                    </div>
+                    <div class="col-6 py-1">線上影片</div>
+                  </div>
+                  <div class="row border-bottom">
+                    <div class="col-6 py-1 text-right border-right">
+                      <strong>授課時數</strong>
+                    </div>
+                    <div class="col-6 py-1">200小時</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 py-1 text-right border-right">
+                      <strong>課程費用</strong>
+                    </div>
+                    <div class="col-6 py-1">30000元</div>
+                  </div>
+                </div>
+                <a href="" class="btn btn-primary px-4 mx-auto mb-4"
+                  >查看詳情</a
+                >
+              </div>
+            </div>
+
+            <div class="col-lg-4 mb-5">
+              <div class="card border-0 bg-light shadow-sm pb-2">
+                <img class="card-img-top mb-2" src="img/uiux.jpg" alt="" />
+                <div class="card-body text-center">
+                  <h4 class="card-title">UI/UX設計師培訓</h4>
+                  <p class="card-text">
+                    UI/UX設計是網站與APP重要的一環，本課程教導設計原則、工具與流程，加上實務案例，讓您成為優秀的UI/UX設計師！
+                    <br />
+                    <br />
+                  </p>
+                </div>
+                <div class="card-footer bg-transparent py-4 px-5">
+                  <div class="row border-bottom">
+                    <div class="col-6 py-1 text-right border-right">
+                      <strong>適合學習對象</strong>
+                    </div>
+                    <div class="col-6 py-1">18歲以上</div>
+                  </div>
+                  <div class="row border-bottom">
+                    <div class="col-6 py-1 text-right border-right">
+                      <strong>課程型態</strong>
+                    </div>
+                    <div class="col-6 py-1">實體課程</div>
+                  </div>
+                  <div class="row border-bottom">
+                    <div class="col-6 py-1 text-right border-right">
+                      <strong>授課時數</strong>
+                    </div>
+                    <div class="col-6 py-1">10小時</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 py-1 text-right border-right">
+                      <strong>課程費用</strong>
+                    </div>
+                    <div class="col-6 py-1">20000元</div>
+                  </div>
+                </div>
+                <a href="" class="btn btn-primary px-4 mx-auto mb-4"
+                  >查看詳情</a
+                >
+              </div>
+            </div>
+            <div class="col-lg-4 mb-5">
+              <div class="card border-0 bg-light shadow-sm pb-2">
+                <img class="card-img-top mb-2" src="img/app.jpg" alt="" />
+                <div class="card-body text-center">
+                  <h4 class="card-title">手機APP開發</h4>
+                  <p class="card-text">
+                    想打造自己的APP嗎？本課程教授手機APP開發技能，包含iOS、Android平台、React
+                    Native等，實用案例加強學習成效，讓您輕鬆打造出優秀的手機APP！
+                  </p>
+                </div>
+                <div class="card-footer bg-transparent py-4 px-5">
+                  <div class="row border-bottom">
+                    <div class="col-6 py-1 text-right border-right">
+                      <strong>適合學習對象</strong>
+                    </div>
+                    <div class="col-6 py-1">20歲以上</div>
+                  </div>
+                  <div class="row border-bottom">
+                    <div class="col-6 py-1 text-right border-right">
+                      <strong>課程型態</strong>
+                    </div>
+                    <div class="col-6 py-1">線上影片</div>
+                  </div>
+                  <div class="row border-bottom">
+                    <div class="col-6 py-1 text-right border-right">
+                      <strong>授課時數</strong>
+                    </div>
+                    <div class="col-6 py-1">160小時</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 py-1 text-right border-right">
+                      <strong>課程費用</strong>
+                    </div>
+                    <div class="col-6 py-1">25000元</div>
+                  </div>
+                </div>
+                <a href="" class="btn btn-primary px-4 mx-auto mb-4"
+                  >查看詳情</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Class End -->
+
+      <!-- Team Start -->
+      <div class="container-fluid pt-5">
+        <div class="container">
+          <div class="text-center pb-2">
+            <p class="section-title px-5">
+              <span class="px-2">我們的師資</span>
+              <br />
+              <br />
+            </p>
+            <h1 class="mb-4" style="font-family: Nunito">本月熱門教師</h1>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-lg-3 text-center team mb-5">
+              <div
+                class="position-relative overflow-hidden mb-4"
+                style="border-radius: 100%"
+              >
+                <img class="img-fluid w-100" src="img/team-1.jpg" alt="" />
+                <div
+                  class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute"
+                >
+                  <a
+                    class="btn btn-outline-light text-center mr-2 px-0"
+                    style="width: 38px; height: 38px"
+                    href="#"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a
+                    class="btn btn-outline-light text-center mr-2 px-0"
+                    style="width: 38px; height: 38px"
+                    href="#"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a
+                    class="btn btn-outline-light text-center px-0"
+                    style="width: 38px; height: 38px"
+                    href="#"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                </div>
+              </div>
+              <h4>Amber</h4>
+              <i>數學老師</i>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center team mb-5">
+              <div
+                class="position-relative overflow-hidden mb-4"
+                style="border-radius: 100%"
+              >
+                <img class="img-fluid w-100" src="img/team-2.jpeg" alt="" />
+                <div
+                  class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute"
+                >
+                  <a
+                    class="btn btn-outline-light text-center mr-2 px-0"
+                    style="width: 38px; height: 38px"
+                    href="#"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a
+                    class="btn btn-outline-light text-center mr-2 px-0"
+                    style="width: 38px; height: 38px"
+                    href="#"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a
+                    class="btn btn-outline-light text-center px-0"
+                    style="width: 38px; height: 38px"
+                    href="#"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                </div>
+              </div>
+              <h4>John</h4>
+              <i>英文老師</i>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center team mb-5">
+              <div
+                class="position-relative overflow-hidden mb-4"
+                style="border-radius: 100%"
+              >
+                <img class="img-fluid w-100" src="img/team-3.jpg" alt="" />
+                <div
+                  class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute"
+                >
+                  <a
+                    class="btn btn-outline-light text-center mr-2 px-0"
+                    style="width: 38px; height: 38px"
+                    href="#"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a
+                    class="btn btn-outline-light text-center mr-2 px-0"
+                    style="width: 38px; height: 38px"
+                    href="#"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a
+                    class="btn btn-outline-light text-center px-0"
+                    style="width: 38px; height: 38px"
+                    href="#"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                </div>
+              </div>
+              <h4>Alice</h4>
+              <i>舞蹈老師</i>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center team mb-5">
+              <div
+                class="position-relative overflow-hidden mb-4"
+                style="border-radius: 100%"
+              >
+                <img class="img-fluid w-100" src="img/team-4.jfif" alt="" />
+                <div
+                  class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute"
+                >
+                  <a
+                    class="btn btn-outline-light text-center mr-2 px-0"
+                    style="width: 38px; height: 38px"
+                    href="#"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a
+                    class="btn btn-outline-light text-center mr-2 px-0"
+                    style="width: 38px; height: 38px"
+                    href="#"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a
+                    class="btn btn-outline-light text-center px-0"
+                    style="width: 38px; height: 38px"
+                    href="#"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                </div>
+              </div>
+              <h4>Cindy</h4>
+              <i>水彩老師</i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Team End -->
+
+      <!-- Testimonial Start -->
+      <div class="container-fluid py-5">
+        <div class="container p-0">
+          <div class="text-center pb-2">
+            <p class="section-title px-5">
+              <span class="px-2">學習心得</span>
+              <br />
+              <br />
+            </p>
+            <h1 class="mb-4" style="font-family: Nunito">來自學生的反饋</h1>
+          </div>
+          <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item px-3">
+              <div class="bg-light shadow-sm rounded mb-4 p-4">
+                <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+                在JAVA課中，我對程式設計有了更深入的理解和掌握，學會了更多實用的工具和技巧，能夠更好地開發出功能強大的應用程式。老師教學循序漸進，引導學生進入學習狀態，並給予豐富的實例練習，讓我在學習中感到非常充實。
+              </div>
+              <div class="d-flex align-items-center">
+                <img
+                  class="rounded-circle"
+                  src="img/testimonial-1.jpg"
+                  style="width: 70px; height: 70px"
+                  alt="Image"
+                />
+                <div class="pl-3">
+                  <h5>張小銘</h5>
+                  <i>初級工程師</i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-item px-3">
+              <div class="bg-light shadow-sm rounded mb-4 p-4">
+                <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+                上完一整年的鋼琴課後，我的音樂素養大幅提升，爵士鋼琴的技巧也更加成熟。感謝的老師用心教學，給予了豐富的演奏技巧指導和表演技巧指導，每次上課都讓我有很大的收獲。非常感謝平台的媒合!!
+              </div>
+              <div class="d-flex align-items-center">
+                <img
+                  class="rounded-circle"
+                  src="img/testimonial-2.jpg"
+                  style="width: 70px; height: 70px"
+                  alt="Image"
+                />
+                <div class="pl-3">
+                  <h5>王小美</h5>
+                  <i>大二學生</i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-item px-3">
+              <div class="bg-light shadow-sm rounded mb-4 p-4">
+                <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+                感謝平台提供的課程，我對英語口語表達有了更自信的掌握和應對能力，能夠更流利地表達自己的想法和觀點。老師教學生動活潑，能夠很好地引導學生進入語言學習的狀態，並且提供了豐富的口語練習機會，每次上課都感到非常有收穫。
+              </div>
+              <div class="d-flex align-items-center">
+                <img
+                  class="rounded-circle"
+                  src="img/testimonial-3.jpg"
+                  style="width: 70px; height: 70px"
+                  alt="Image"
+                />
+                <div class="pl-3">
+                  <h5>李大仁</h5>
+                  <i>外商客服</i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-item px-3">
+              <div class="bg-light shadow-sm rounded mb-4 p-4">
+                <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+                這是我第一次上足球課，我學到了很多關於足球的知識和技能，體能也得到了提升。更重要的是，我在團隊合作的過程中，學會了如何互相協作，達成共同目標。教練也非常專業，讓我在訓練中感到非常有挑戰性和成就感。
+              </div>
+              <div class="d-flex align-items-center">
+                <img
+                  class="rounded-circle"
+                  src="img/testimonial-4.jpg"
+                  style="width: 70px; height: 70px"
+                  alt="Image"
+                />
+                <div class="pl-3">
+                  <h5>陳小九</h5>
+                  <i>高中生</i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial End -->
+    </main>
+
+    <footer
+      class="TeacherWanted"
+      style="background-color: #3c6a36; color: white"
+    >
+      <div
+        class="containerFooter flexAllCenter"
+        style="box-sizing: border-box; padding-top: 50px"
+      >
+        <div class="flexWrap">
+          <ul class="col_33">
+            <li class="flexAllCenter" style="color: #a4c964; font-size: 40px">
+              懸賞啼雀
+            </li>
+            <li
+              class="flexAllCenter"
+              style="margin: 10px 30px; font-weight: normal"
+            >
+              Labore dolor amet ipsum ea, erat sit ipsum duo eos. Volup amet ea
+              dolor et magna dolor, elitr rebum duo est sed diam elitr. Stet
+              elitr stet diam duo eos rebum ipsum diam ipsum elitr.
+            </li>
+            <li
+              id="imgIcon"
+              class="flexVerticalCenter"
+              style="margin: 20px 30px"
+            >
+              <img src="img/base/facebook.svg" class="imgIntroduce" alt="" />
+              <img src="img/base/twitter.svg" class="imgIntroduce" alt="" />
+              <img src="img/base/instagram.svg" class="imgIntroduce" alt="" />
+            </li>
+          </ul>
+          <ul class="col_33 flexHorizontalCenter footerMobile">
+            <div style="width: 70%">
+              <li
+                class="flexAllCenter"
+                style="color: #a4c964; font-size: 30px; height: 65px"
+              >
+                Get In Touch
+              </li>
+              <div class="" style="height: 250px; font-weight: 400">
+                <li class="flexWrap" style="margin-top: 10px">
+                  <img
+                    src="img/base/map-marker.svg"
+                    style="height: 24px; padding-right: 10px; margin-top: 6px"
+                    alt=""
+                  />
+                  <div>
+                    <h3 style="font-size: 1.3rem">地址</h3>
+                    <h5 style="font-size: 1rem">123</h5>
+                  </div>
+                </li>
+
+                <li class="flexWrap" style="margin-top: 10px">
+                  <img
+                    src="img/base/mail.svg"
+                    style="height: 24px; padding-right: 10px; margin-top: 6px"
+                    alt=""
+                  />
+                  <div>
+                    <h3 style="font-size: 1.3rem">信箱</h3>
+                    <h5 style="font-size: 1rem">a1234567890@gmail.com</h5>
+                  </div>
+                </li>
+
+                <li class="flexWrap" style="margin-top: 10px">
+                  <img
+                    src="img/base/phone.svg"
+                    style="height: 24px; padding-right: 10px; margin-top: 6px"
+                    alt=""
+                  />
+                  <div>
+                    <h3 style="font-size: 1.3rem">連絡電話</h3>
+                    <h5 style="font-size: 1rem">0900123456</h5>
+                  </div>
+                </li>
+              </div>
+            </div>
+          </ul>
+          <ul class="col_33 flexHorizontalCenter footerMobile">
+            <div style="width: 40%">
+              <li
+                class="flexAllCenter"
+                style="color: #a4c964; font-size: 30px; height: 65px"
+              >
+                網站地圖
+              </li>
+              <div class="webMap">
+                <li style="margin-top: 5px">
+                  <a class="webMapLink" href="">>首頁</a>
+                </li>
+                <li style="margin-top: 5px">
+                  <a class="webMapLink" href="">>課程</a>
+                </li>
+                <li style="margin-top: 5px">
+                  <a class="webMapLink" href="">>活動</a>
+                </li>
+                <li style="margin-top: 5px">
+                  <a class="webMapLink" href="">>許願池</a>
+                </li>
+                <li style="margin-top: 5px">
+                  <a class="webMapLink" href="">>論壇</a>
+                </li>
+                <li style="margin-top: 5px">
+                  <a class="webMapLink" href="">>商城</a>
+                </li>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
