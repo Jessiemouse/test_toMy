@@ -18,6 +18,7 @@
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
       crossorigin="anonymous"
     ></script>
+
     <!-- bootstrap相關 -->
 
     <link href="css/baseVer2.css" rel="stylesheet" type="text/css" />
@@ -29,6 +30,7 @@
     />
     <script src="jquery/jquery-3.6.4.min.js"></script>
     <script src="js/base.js"></script>
+    <script src="js/loginStatus.js"></script>
 
     <!-- from kinder -->
     <link href="css/style.css" rel="stylesheet" />
@@ -78,6 +80,37 @@
     <script src="js/main.js"></script>
 
     <title>Document</title>
+<!--    會員選單css start-->
+    <style>
+      .dropdown-toggle {
+        position: relative;
+      }
+
+      .dropdown-toggle .arrow {
+        display: inline-block;
+        margin-left: 5px;
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid black;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        padding: 10px;
+      }
+
+      .dropdown.open .dropdown-menu {
+        display: block;
+      }
+
+    </style>
+    <!--    會員選單css end-->
   </head>
   <body class="TeacherWanted">
     <!-- 手機板導引列(粗糙) -->
@@ -130,7 +163,7 @@
               class="flexWrap flexAllCenter pcHave"
               style="flex-grow: 1"
             >
-              <a class="flexAllCenter" href="">首頁</a>
+              <a class="flexAllCenter" href="index">首頁</a>
               <a class="flexAllCenter" href="">課程</a>
               <a class="flexAllCenter" href="">活動</a>
               <a class="flexAllCenter" href="wish">許願池</a>
@@ -177,20 +210,38 @@
                 style="height: 30px; margin: 3px 5px; cursor: pointer"
                 alt=""
               />
-
-              <li>
-                <a href="/login" class="nav-link" style="display: flex; justify-content: center;">登入</a>
-              </li>
-              <li>
-                <a href="/logout" class="nav-link" style="display: flex; justify-content: center;">登出</a>
-              </li>
+<!--              會員中心下拉選單start-->
+              <nav>
+                <ul>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">會員中心 </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">會員資訊</a></li>
+                      <li><a href="login">登入</a></li>
+                      <li><a href="register">註冊</a></li>
+                      <li><a href="logout">登出</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+              <!--              會員中心下拉選單end-->
+<!--              <li>-->
+<!--                <a id="loginButton" href="/login" class="nav-link" style="display: flex; justify-content: center;">登入</a>-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                <a id="logoutButton" href="/logout" class="nav-link" style="display: flex; justify-content: center;">登出</a>-->
+<!--              </li>-->
 
             </div>
           </li>
         </ul>
       </div>
     </header>
-
+    <div th:if="${msg != null }">
+      <script th:inline="javascript">
+        alert([[${msg}]]);
+      </script>
+    </div>
 
 
     <main class="TeacherWanted">
@@ -843,19 +894,7 @@
         </div>
       </div>
     </footer>
-    <script th:inline="javascript">
-      var sessionUser = /*[[${session.user}]]*/ null;
-      var logoutButton = document.getElementById('logoutButton');
-      var loginButton = document.getElementById('loginButton');
 
-      if (sessionUser) {
-        logoutButton.style.display = 'block';
-        loginButton.style.display = 'none';
-      } else {
-        logoutButton.style.display = 'none';
-        loginButton.style.display = 'block';
-      }
-    </script>
 
   </body>
 

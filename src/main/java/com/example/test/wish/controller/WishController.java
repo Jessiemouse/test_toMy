@@ -3,10 +3,12 @@ package com.example.test.wish.controller;
 import com.example.test.wish.entity.Wish;
 import com.example.test.wish.WishNotFoundException;
 import com.example.test.wish.service.WishService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -33,10 +35,14 @@ public class WishController {
     }
 
     @PostMapping("/wish/save")
-    public String saveWish(Wish wish, RedirectAttributes ra) {
+    public String saveWish(@ModelAttribute("wish") Wish wish, HttpSession session, Model model) {
+        String xx = (String) session.getAttribute("memAccount");
+        wish.setMemAccount(xx);
+        System.out.println("memAccount: " + wish.getMemAccount());
+
         service.save(wish);
-        ra.addFlashAttribute("message", "許願成功");
-        return "redirect:/wish";
+
+        return "redirect:/wish?message=success";
     }
 
     @GetMapping("/wish/edit/{wishId}")
@@ -49,15 +55,15 @@ public class WishController {
             return "wish_form";
         } catch (WishNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
-            return "redirect:/wish";
+            return "wish";
         }
     }
 
     @GetMapping("/wish/delete/{wishId}")
-    public String deleteWish(@PathVariable("wishId") Integer wishId, RedirectAttributes ra) {
+    public String deleteWish(@PathVariable("wishId") Integer wishId, RedirectAttributes ra,Model model) {
         try {
             service.delete(wishId);
-            ra.addFlashAttribute("message", "已刪除");
+
         } catch (WishNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
         }

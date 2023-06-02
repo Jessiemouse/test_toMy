@@ -17,6 +17,7 @@
   <form th:action="@{/wish/save}" method="post" th:object="${wish}"
       style="max-width: 500px; margin: 0 auto;">
     <input type="hidden" th:field="*{wishId}">
+    <input type="hidden" th:field="*{memAccount}">
     <div class="border border-secondary rounded p-3">
       <div class="form-group row">
         <label class="col-sm-4 col-form-label">科目:</label>
@@ -69,7 +70,12 @@
       <br>
 
       <div class="text-center">
-        <button type="submit" class="btn btn-success m-2">送出</button>
+        <button type="submit" class="btn btn-success m-2" onclick="showAlert('ヽ(・∀・)ﾉ許願成功')">送出</button>
+        <script>
+          function showAlert(message) {
+            alert(message);
+          }
+        </script>
         <button type="button" class="btn btn-secondary m-2" onclick="cancelForm()">取消</button>
       </div>
     </div>

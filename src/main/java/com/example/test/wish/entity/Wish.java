@@ -18,8 +18,8 @@ public class Wish {
     @Column(name = "wish_id", insertable = false)
     private Integer wishId;
 
-    @Column(name = "mem_account", insertable = false)
-    private Integer memAccount;
+    @Column(name = "mem_account")
+    private String memAccount;
 
     @Column(name = "wish_subject")
     private String wishSubject;
@@ -30,9 +30,9 @@ public class Wish {
     private String wishStudents;
     @Column(name = "wish_period")
     private String wishPeriod;
-    @Column(name = "wish_salary", columnDefinition = "TEXT")
+    @Column(name = "wish_salary")
     private String wishSalary;
-    @Column(name = "wish_content")
+    @Column(name = "wish_content", columnDefinition = "TEXT")
     private String wishContent;
     @Column(name = "wish_email")
     private String wishEmail;

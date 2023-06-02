@@ -28,6 +28,7 @@
     />
     <script src="jquery/jquery-3.6.4.min.js"></script>
     <script src="js/base.js"></script>
+    <script src="js/loginStatus.js"></script>
 
     <title>Document</title>
     <style>
@@ -261,10 +262,10 @@
                     />
 
                     <li>
-                        <a href="/login" class="nav-link" style="display: flex; justify-content: center;">登入</a>
+                        <a id="loginButton" href="/login" class="nav-link" style="display: flex; justify-content: center;">登入</a>
                     </li>
                     <li>
-                        <a href="/logout" class="nav-link" style="display: flex; justify-content: center;">登出</a>
+                        <a id="logoutButton" href="/logout" class="nav-link" style="display: flex; justify-content: center;">登出</a>
                     </li>
                 </div>
             </li>
@@ -284,7 +285,7 @@
     <br>
     <div class="form-style-5">
         <form id="myform" th:action="@{/registerUser}" th:object="${user}" method="post">
-            <h1>會員註冊申請表</h1>
+            <h1>成為我們的一份子吧!</h1>
             <br>
             <fieldset>
                 <legend><span class="number">1</span> 基本資料</legend>

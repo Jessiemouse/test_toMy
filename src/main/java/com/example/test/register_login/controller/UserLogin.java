@@ -7,10 +7,14 @@ import com.example.test.register_login.service.AES256Util;
 import com.example.test.wish.entity.Wish;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -18,6 +22,7 @@ import java.util.Optional;
 public class UserLogin {
     @Autowired(required = true)
     private UserRepo repo;//注入repo(要從資料庫撈資料)
+
 
     @GetMapping("/login")
     public String login(Model model, HttpSession session) {
@@ -45,7 +50,10 @@ public class UserLogin {
             // 在登入成功後設置 Session
             session.setAttribute("user", userdata.get());
             model.addAttribute("memName", userdata.get().getMemName());
+            model.addAttribute("memNickname", userdata.get().getMemNickname());
             session.setAttribute("memAccount", userdata.get().getMemAccount());
+            model.addAttribute("msg", "登入成功，٩(◕‿◕｡)۶歡迎回來~ " + userdata.get().getMemNickname());
+            // 將訊息存儲到msg變數中
 
             return "index";
         } else {
@@ -55,27 +63,28 @@ public class UserLogin {
 
 
     @GetMapping("/logout")
-    public String logout(HttpSession session, Model model) {
+    public String logout(@ModelAttribute("user")User user, HttpSession session, Model model) {
         // 清除会话中的用户信息
         session.removeAttribute("user");
         session.invalidate();
-        model.addAttribute("msg", "已登出");
-        System.out.println("logout");
-        return "index"; // 返回登出成功的頁面或視圖名稱
+        model.addAttribute("msg", "您已登出，( •́ω•̩̥̀ )下次再會~");
+        System.out.println(user.getMemAccount()+" already logout");
+        return "index";
     }
+
+
 
 
     @GetMapping("/index")
     public String index(Model model, HttpSession session) {
-        boolean isUserLoggedIn = session.getAttribute("user") != null;
-        model.addAttribute("isUserLoggedIn", isUserLoggedIn);
+
         return "index";
     }
 
-//    @GetMapping("/administrators/session")
-//    public ResponseEntity<Administrator> getSessionInfo(@SessionAttribute("adminSession") Administrator administrator1) {
+//    @GetMapping("/user/session")
+//    public ResponseEntity<User> getSessionInfo(@SessionAttribute("user")User user) {
 //
-//        return ResponseEntity.status(HttpStatus.OK).body(administrator1);
+//        return ResponseEntity.status(HttpStatus.OK).body(user);
 //    }
 
 
