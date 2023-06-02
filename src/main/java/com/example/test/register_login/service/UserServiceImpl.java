@@ -1,9 +1,12 @@
 package com.example.test.register_login.service;
 
+import com.example.test.register_login.UserNotFoundException;
 import com.example.test.register_login.entity.User;
 import com.example.test.register_login.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -17,6 +20,33 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean checkMemAccount(String memAccount) {
         return repo.existsByMemAccount(memAccount);
+    }
+    @Override
+    public boolean checkMemEmail(String memEmail) {
+        return repo.existsByMemEmail(memEmail);
+    }
+    @Override
+    public  void updateResetPasswordToken(String token,String memEmail) throws UserNotFoundException {
+        User user = repo.findByMemEmail(memEmail);
+        if(user != null){
+            user.setResetPasswordToken(token);
+            repo.save(user);
+        } else {
+            throw new UserNotFoundException("查無此Email"+memEmail);
+        }
+    }
+
+    public User get(String resetPasswordToken){
+        return repo.findByResetPasswordToken(resetPasswordToken);
+    }
+
+    public void updatePassword(User user, String newPassword){
+        String newpassword = user.getResetPasswordToken();//取出密碼
+        String encodePassWord = AES256Util.encode(newPassword);//密碼加密
+        user.setMemPassword(encodePassWord);//塞回物件存進資料庫
+        user.setResetPasswordToken(null);
+
+        repo.save(user);
     }
 
 

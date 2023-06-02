@@ -19,7 +19,7 @@ public class UserRegister {
     public String register(Model model){ //註冊的方法，model:html的元素
         User user = new User(); //新建一個實例
         model.addAttribute("user",user);//抓取html的user丟到資料庫的user
-        return "newRegister";//回傳
+        return "register";//回傳
 
     }
     @PostMapping("/registerUser")

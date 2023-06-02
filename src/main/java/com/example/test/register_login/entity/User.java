@@ -50,5 +50,6 @@ public class User {
     private Timestamp updateTime;
     @Column(name = "mem_status", insertable = false)
     private Integer memStatus;
-
+    @Column(name = "reset_password_token")
+    private String resetPasswordToken;
 }

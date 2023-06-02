@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="https://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -130,9 +130,12 @@
                             alt=""
                     />
 
-                    <a class="btnCss flexAllCenter" style="color: white" href="login"
-                    >登入</a
-                    >
+                    <li class="btnCss flexAllCenter" style="color: white" th:if="${session.user}">
+                        <a href="/index" class="nav-link">登出</a>
+                    </li>
+                    <li class="btnCss flexAllCenter" style="color: white" th:unless="${session.user}">
+                        <a href="/login" class="nav-link">登入</a>
+                    </li>
                 </div>
             </li>
         </ul>
@@ -142,19 +145,12 @@
 <main class="TeacherWanted">
     <br>
     <br>
-    <h1 style="color:green;text-align: center;">登入成功</h1>
+    <h2 style="color:red;text-align: center;">查無帳號或密碼</h2>
     <br>
-<!--    <form action="/userLogin" th:object="${user}" method="post" id="myform">-->
-        <h2 style="color:lightgreen;text-align: center;">歡迎回來~ <span style="color:orange;" th:text="${memName}"></span></h2>
-<!--    </form>-->
     <br>
     <div style="text-align: center;">
-        <a href="index" style="font-size: 25px;">點此回到首頁</a>
+        <a href="login" style="font-size: 25px;">點此重新登入</a>
     </div>
-
-
-
-
 
 </main>
 <br>

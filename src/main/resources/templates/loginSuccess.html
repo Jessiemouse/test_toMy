@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -85,7 +85,7 @@
                     <a class="flexAllCenter" href="">首頁</a>
                     <a class="flexAllCenter" href="">課程</a>
                     <a class="flexAllCenter" href="">活動</a>
-                    <a class="flexAllCenter" href="">許願池</a>
+                    <a class="flexAllCenter" href="wish">許願池</a>
                     <a class="flexAllCenter" href="">論壇</a>
                     <a class="flexAllCenter" href="">商城</a>
                 </div>
@@ -130,9 +130,17 @@
                             alt=""
                     />
 
-                    <a class="btnCss flexAllCenter" style="color: white" href="login"
-                    >登入</a
-                    >
+<!--                    <a class="btnCss flexAllCenter" style="color: white" href="login"-->
+<!--                    >登入</a-->
+<!--                    >-->
+                    <!-- 登入和登出按钮 -->
+                    <li>
+                        <a href="/login" class="nav-link" style="display: flex; justify-content: center;">登入</a>
+                    </li>
+                    <li>
+                        <a href="/logout" class="nav-link" style="display: flex; justify-content: center;">登出</a>
+                    </li>
+
                 </div>
             </li>
         </ul>
@@ -142,12 +150,17 @@
 <main class="TeacherWanted">
     <br>
     <br>
-    <h2 style="color:red;text-align: center;">查無帳號或密碼</h2>
+    <h1 style="color:green;text-align: center;"><span style="color:greenyellow;" th:text="${memName}"></span>登入成功</h1>
     <br>
+
     <br>
     <div style="text-align: center;">
-        <a href="login" style="font-size: 25px;">點此重新登入</a>
+        <a href="index" style="font-size: 25px;">點此回到首頁</a>
     </div>
+
+
+
+
 
 </main>
 <br>
@@ -268,4 +281,17 @@
     </div>
 </footer>
 </body>
+<script th:inline="javascript">
+    var sessionUser = /*[[${session.user}]]*/ null;
+    var logoutButton = document.getElementById('logoutButton');
+    var loginButton = document.getElementById('loginButton');
+
+    if (sessionUser) {
+        logoutButton.style.display = 'block';
+        loginButton.style.display = 'none';
+    } else {
+        logoutButton.style.display = 'none';
+        loginButton.style.display = 'block';
+    }
+</script>
 </html>

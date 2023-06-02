@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
     <!-- bootstrap相關 -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
@@ -132,7 +133,7 @@
               <a class="flexAllCenter" href="">首頁</a>
               <a class="flexAllCenter" href="">課程</a>
               <a class="flexAllCenter" href="">活動</a>
-              <a class="flexAllCenter" href="">許願池</a>
+              <a class="flexAllCenter" href="wish">許願池</a>
               <a class="flexAllCenter" href="">論壇</a>
               <a class="flexAllCenter" href="">商城</a>
             </div>
@@ -177,14 +178,20 @@
                 alt=""
               />
 
-              <a class="btnCss flexAllCenter" style="color: white" href="login"
-                >登入</a
-              >
+              <li>
+                <a href="/login" class="nav-link" style="display: flex; justify-content: center;">登入</a>
+              </li>
+              <li>
+                <a href="/logout" class="nav-link" style="display: flex; justify-content: center;">登出</a>
+              </li>
+
             </div>
           </li>
         </ul>
       </div>
     </header>
+
+
 
     <main class="TeacherWanted">
       <!-- Header Start -->
@@ -722,94 +729,7 @@
       </div>
       <!-- Team End -->
 
-      <!-- Testimonial Start -->
-      <div class="container-fluid py-5">
-        <div class="container p-0">
-          <div class="text-center pb-2">
-            <p class="section-title px-5">
-              <span class="px-2">學習心得</span>
-              <br />
-              <br />
-            </p>
-            <h1 class="mb-4" style="font-family: Nunito">來自學生的反饋</h1>
-          </div>
-          <div class="owl-carousel testimonial-carousel">
-            <div class="testimonial-item px-3">
-              <div class="bg-light shadow-sm rounded mb-4 p-4">
-                <h3 class="fas fa-quote-left text-primary mr-3"></h3>
-                在JAVA課中，我對程式設計有了更深入的理解和掌握，學會了更多實用的工具和技巧，能夠更好地開發出功能強大的應用程式。老師教學循序漸進，引導學生進入學習狀態，並給予豐富的實例練習，讓我在學習中感到非常充實。
-              </div>
-              <div class="d-flex align-items-center">
-                <img
-                  class="rounded-circle"
-                  src="img/testimonial-1.jpg"
-                  style="width: 70px; height: 70px"
-                  alt="Image"
-                />
-                <div class="pl-3">
-                  <h5>張小銘</h5>
-                  <i>初級工程師</i>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial-item px-3">
-              <div class="bg-light shadow-sm rounded mb-4 p-4">
-                <h3 class="fas fa-quote-left text-primary mr-3"></h3>
-                上完一整年的鋼琴課後，我的音樂素養大幅提升，爵士鋼琴的技巧也更加成熟。感謝的老師用心教學，給予了豐富的演奏技巧指導和表演技巧指導，每次上課都讓我有很大的收獲。非常感謝平台的媒合!!
-              </div>
-              <div class="d-flex align-items-center">
-                <img
-                  class="rounded-circle"
-                  src="img/testimonial-2.jpg"
-                  style="width: 70px; height: 70px"
-                  alt="Image"
-                />
-                <div class="pl-3">
-                  <h5>王小美</h5>
-                  <i>大二學生</i>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial-item px-3">
-              <div class="bg-light shadow-sm rounded mb-4 p-4">
-                <h3 class="fas fa-quote-left text-primary mr-3"></h3>
-                感謝平台提供的課程，我對英語口語表達有了更自信的掌握和應對能力，能夠更流利地表達自己的想法和觀點。老師教學生動活潑，能夠很好地引導學生進入語言學習的狀態，並且提供了豐富的口語練習機會，每次上課都感到非常有收穫。
-              </div>
-              <div class="d-flex align-items-center">
-                <img
-                  class="rounded-circle"
-                  src="img/testimonial-3.jpg"
-                  style="width: 70px; height: 70px"
-                  alt="Image"
-                />
-                <div class="pl-3">
-                  <h5>李大仁</h5>
-                  <i>外商客服</i>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial-item px-3">
-              <div class="bg-light shadow-sm rounded mb-4 p-4">
-                <h3 class="fas fa-quote-left text-primary mr-3"></h3>
-                這是我第一次上足球課，我學到了很多關於足球的知識和技能，體能也得到了提升。更重要的是，我在團隊合作的過程中，學會了如何互相協作，達成共同目標。教練也非常專業，讓我在訓練中感到非常有挑戰性和成就感。
-              </div>
-              <div class="d-flex align-items-center">
-                <img
-                  class="rounded-circle"
-                  src="img/testimonial-4.jpg"
-                  style="width: 70px; height: 70px"
-                  alt="Image"
-                />
-                <div class="pl-3">
-                  <h5>陳小九</h5>
-                  <i>高中生</i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Testimonial End -->
+
     </main>
 
     <footer
@@ -923,5 +843,20 @@
         </div>
       </div>
     </footer>
+    <script th:inline="javascript">
+      var sessionUser = /*[[${session.user}]]*/ null;
+      var logoutButton = document.getElementById('logoutButton');
+      var loginButton = document.getElementById('loginButton');
+
+      if (sessionUser) {
+        logoutButton.style.display = 'block';
+        loginButton.style.display = 'none';
+      } else {
+        logoutButton.style.display = 'none';
+        loginButton.style.display = 'block';
+      }
+    </script>
+
   </body>
+
 </html>

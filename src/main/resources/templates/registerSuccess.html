@@ -130,9 +130,12 @@
                 alt=""
               />
 
-              <a class="btnCss flexAllCenter" style="color: white" href="login"
-                >登入</a
-              >
+              <li class="btnCss flexAllCenter" style="color: white" th:if="${session.user}">
+                <a href="/index" class="nav-link">登出</a>
+              </li>
+              <li class="btnCss flexAllCenter" style="color: white" th:unless="${session.user}">
+                <a href="/login" class="nav-link">登入</a>
+              </li>
             </div>
           </li>
         </ul>
