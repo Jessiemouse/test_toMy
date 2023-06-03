@@ -27,16 +27,41 @@
   />
   <script src="jquery/jquery-3.6.4.min.js"></script>
   <script src="js/base.js"></script>
-  <script src="js/loginStatus.js"></script>
+  <script src="js/dropdown.js"></script>
 </head>
 <style>
 
   .container {
     background-color: rgb(238, 245, 212);
     width: 100%;
-
-
   }
+  .dropdown-toggle {
+    position: relative;
+  }
+
+  .dropdown-toggle .arrow {
+    display: inline-block;
+    margin-left: 5px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid black;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    padding: 10px;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+
 </style>
 <body>
 
@@ -165,12 +190,24 @@
     <div class="row" style="margin-bottom: 20px">
       <br>
       <br>
-      <div class="col-6"></div>
-      <div class="col-6" style="display: flex; justify-content: left; margin-top: 50px">
-        <img src="img/wishexplain2.png" alt="" width="350px !important" />
+      <div class="col-3"></div>
+      <div class="col-3" style="display: flex; align-items: center;color: #3c6a36;">
+        <h2 style="font-weight: bold;" >今晚~我想學點...</h2>
+      </div>
+      <div class="col-3" style="display: flex; flex-direction: column; align-items: flex-end; margin-top: 20px;">
+        <img src="img/angel.png" width="200px" />
       </div>
 
-      <div class="col-4"></div>
+      <div class="col-3"></div>
+      <div class="col-4" style="margin-left: 50px;font-size:20px;display: flex;font-weight: bold; align-items:end;color: #ba8b00;">
+        <p >
+          這座許願池有個古老的傳說...
+          <br>
+          只要在此許下心願，
+          <br>
+          小天使就會替你找到適合的老師!!
+        </p>
+      </div>
       <div
               class="col-4"
               style="display: flex; justify-content: center; margin-bottom: 15px"
@@ -178,21 +215,24 @@
         <img src="img/wish.png" alt="" width="250px" />
       </div>
 
+      <div th:if="${message != null}" class="popup">
+        <script th:inline="javascript">
+          alert([[${message}]]);
+        </script>
+      </div>
 
-
-      <div class="col-4" style="position: relative;">
-        <a
+      <div class="col-4" >
+        <a id="postwish"
                 th:href="@{/wish/new}"
-                class="postwish"
                 style="
-      margin-left: 55%;
+
       align-items: center;
       font-size: 20px;
       text-align: center;
       color: rgb(1, 47, 5);
       font-weight: bold;
       background-color: #a4c964;
-      display: inline-block;
+      margin-left: 65%;
       text-decoration: none;
       width: 150px;
       border-radius: 5px;
@@ -207,9 +247,7 @@
     </div>
   <br>
   </div>
-  <div th:if="${message}" class="alert alert-success text-center">
-    [[${message}]]
-  </div>
+
 
   <div>
     <table class="table table-stripe table-hover" style="width: 80%; margin: 0 auto;">
@@ -230,6 +268,7 @@
           <th>上課時段</th>
           <th>時薪</th>
           <th>課程需求</th>
+          <th>聯絡信箱</th>
 
           <th></th>
         </tr>
@@ -245,17 +284,25 @@
          <td>[[${wish.wishPeriod}]]</td>
          <td>[[${wish.wishSalary}]]</td>
          <td>[[${wish.wishContent}]]</td>
+         <td>[[${wish.wishEmail}]]</td>
 
          <td>
-           <a class="btn btn-success m-2" th:href="@{'/wish/edit/' + ${wish.wishId}}" style="font-size: 16px;margin-right: 10px;">編輯</a>
-           <a class="btn btn-secondary m-2" th:href="@{'/wish/delete/' + ${wish.wishId}}" style="font-size: 16px;"
-              onclick="return confirm('確認刪除?') && showAlert('已刪除')">刪除</a>
-           <script>
-             function showAlert(message) {
-               alert(message);
-               return true;
-             }
-           </script>
+           <nav>
+             <ul>
+               <li class="dropdown" style="color: #1c7430; font-weight: bold;text-decoration: none;">
+             <a href="#" class="dropdown-toggle" style="text-decoration: none;">詳情 </a>
+             <ul class="dropdown-menu">
+               <li><a href="#"style="text-decoration: none;">站內信應徵</a></li>
+               <li><a style="text-decoration: none;"th:href="@{'/wish/edit/' + ${wish.wishId}}">發文者編輯</a></li>
+               <li><a style="text-decoration: none;"th:href="@{'/wish/delete/' + ${wish.wishId}}">發文者刪除</a></li>
+             </ul>
+             </li>
+             </ul>
+           </nav>
+<!--           <a class="btn btn-success m-2" th:href="@{'/wish/edit/' + ${wish.wishId}}" style="font-size: 16px;margin-right: 10px; ">編輯</a>-->
+<!--           <a class="btn btn-secondary m-2" th:href="@{'/wish/delete/' + ${wish.wishId}}" style="font-size: 16px;"  >刪除</a>-->
+
+
 
          </td>
        </tr>
