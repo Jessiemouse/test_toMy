@@ -40,7 +40,7 @@ public class User {
     @Column(name = "mem_location")
     private String memLocation;
     @Column(name = "mem_photo")
-    private Byte memPhoto;
+    private byte[] memPhoto;
     private Integer interest1;
     private Integer interest2;
     private Integer interest3;

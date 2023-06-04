@@ -70,7 +70,7 @@ public class UserLogin {
 
 
     @GetMapping("/index")
-    public String index(Model model, HttpSession session) {
+    public String index() {
 
         return "index";
     }

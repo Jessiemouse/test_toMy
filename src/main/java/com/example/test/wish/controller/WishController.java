@@ -93,4 +93,9 @@ public class WishController {
         }
         return "redirect:/wish";
     }
+    @GetMapping("/wishtry")
+    public String index() {
+
+        return "wishtry";
+    }
 }

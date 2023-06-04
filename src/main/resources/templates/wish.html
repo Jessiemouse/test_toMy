@@ -33,7 +33,7 @@
 
   .container {
     background-color: rgb(238, 245, 212);
-    width: 100%;
+
   }
   .dropdown-toggle {
     position: relative;
@@ -215,24 +215,18 @@
         <img src="img/wish.png" alt="" width="250px" />
       </div>
 
-      <div th:if="${message != null}" class="popup">
-        <script th:inline="javascript">
-          alert([[${message}]]);
-        </script>
-      </div>
+
 
       <div class="col-4" >
         <a id="postwish"
                 th:href="@{/wish/new}"
                 style="
-
-
       font-size: 20px;
       text-align: center;
       color: rgb(1, 47, 5);
       font-weight: bold;
       background-color: #a4c964;
-      margin-left: 65%;
+      margin-left: 1100px;
       text-decoration: none;
       width: 150px;
       border-radius: 5px;
@@ -240,17 +234,22 @@
       height: 56px;
       position: absolute;
       margin-bottom: 50px;
-    "
-        >張貼許願</a>
+    ">
+          張貼許願</a>
       </div>
 
     </div>
   <br>
   </div>
 
+<div th:if="${message != null}" class="popup">
+  <script th:inline="javascript">
+    alert([[${message}]]);
+  </script>
+</div>
 
   <div>
-    <table class="table table-stripe table-hover" style="width: 80%; margin: 0 auto;">
+    <table class="table table-stripe table-hover" style="width: 1320px; margin: 0 auto;">
 
     <thead >
         <tr class="success"
