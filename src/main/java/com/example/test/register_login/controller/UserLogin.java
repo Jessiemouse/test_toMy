@@ -4,17 +4,11 @@ package com.example.test.register_login.controller;
 import com.example.test.register_login.entity.User;
 import com.example.test.register_login.repo.UserRepo;
 import com.example.test.register_login.service.AES256Util;
-import com.example.test.wish.entity.Wish;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -44,7 +38,7 @@ public class UserLogin {
     public String userLogin(@ModelAttribute("user") User user, Model model, HttpSession session) {
         String xxx = user.getMemAccount();
         Optional<User> userdata = repo.findByMemAccount(xxx);
-        String password = AES256Util.decode(userdata.get().getMemPassword());
+        String password = AES256Util.decode(userdata.get().getMemPassword());//解密
         if (userdata.isPresent() && user.getMemPassword().equals(password)) {
             System.out.println(userdata.get());
             // 在登入成功後設置 Session
@@ -53,7 +47,7 @@ public class UserLogin {
             model.addAttribute("memNickname", userdata.get().getMemNickname());
             session.setAttribute("memAccount", userdata.get().getMemAccount());
             model.addAttribute("msg", "登入成功，٩(◕‿◕｡)۶歡迎回來~ " + userdata.get().getMemNickname());
-            // 將訊息存儲到msg變數中
+
 
             return "index";
         } else {
@@ -81,11 +75,7 @@ public class UserLogin {
         return "index";
     }
 
-//    @GetMapping("/user/session")
-//    public ResponseEntity<User> getSessionInfo(@SessionAttribute("user")User user) {
-//
-//        return ResponseEntity.status(HttpStatus.OK).body(user);
-//    }
+
 
 
 }

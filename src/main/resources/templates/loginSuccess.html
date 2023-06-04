@@ -281,17 +281,5 @@
     </div>
 </footer>
 </body>
-<script th:inline="javascript">
-    var sessionUser = /*[[${session.user}]]*/ null;
-    var logoutButton = document.getElementById('logoutButton');
-    var loginButton = document.getElementById('loginButton');
 
-    if (sessionUser) {
-        logoutButton.style.display = 'block';
-        loginButton.style.display = 'none';
-    } else {
-        logoutButton.style.display = 'none';
-        loginButton.style.display = 'block';
-    }
-</script>
 </html>

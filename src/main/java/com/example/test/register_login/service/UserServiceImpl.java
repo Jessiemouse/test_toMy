@@ -42,8 +42,8 @@ public class UserServiceImpl implements UserService{
 
     public void updatePassword(User user, String newPassword){
         String newpassword = user.getResetPasswordToken();//取出密碼
-        String encodePassWord = AES256Util.encode(newPassword);//密碼加密
-        user.setMemPassword(encodePassWord);//塞回物件存進資料庫
+        String encodePassword = AES256Util.encode(newpassword);//密碼加密
+        user.setMemPassword(encodePassword);//塞回物件存進資料庫
         user.setResetPasswordToken(null);
 
         repo.save(user);
