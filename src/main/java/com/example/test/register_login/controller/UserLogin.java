@@ -47,10 +47,11 @@ public class UserLogin {
             model.addAttribute("memNickname", userdata.get().getMemNickname());
             session.setAttribute("memAccount", userdata.get().getMemAccount());
             model.addAttribute("msg", "登入成功，٩(◕‿◕｡)۶歡迎回來~ " + userdata.get().getMemNickname());
-
+            System.out.println("login account:"+userdata.get().getMemAccount()+" pw:"+userdata.get().getMemPassword());
 
             return "index";
         } else {
+            System.out.println("login account:"+userdata.get().getMemAccount()+" pw:"+userdata.get().getMemPassword());
             return "loginFail";
         }
     }

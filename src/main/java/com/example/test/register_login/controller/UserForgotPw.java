@@ -53,15 +53,15 @@ public class UserForgotPw {
             String resetPaswordLink = Utility.getSiteURL(request) + "/reset_password?token=" + token;
             System.out.println(resetPaswordLink);
             sendEmail(memEmail, resetPaswordLink);
-            model.addAttribute("error", "重設密碼信已寄出!");
+            model.addAttribute("message", "重設密碼信已寄出!");
 
         } catch (UserNotFoundException ex) {
-            model.addAttribute("error", "查無此Email，請重新輸入");
+            model.addAttribute("message", "查無此Email，請重新輸入");
 
         } catch (MessagingException e) {
-            model.addAttribute("error", "傳送失敗");
+            model.addAttribute("message", "傳送失敗");
         } catch (UnsupportedEncodingException e) {
-            model.addAttribute("error", "傳送失敗");
+            model.addAttribute("message", "傳送失敗");
         }
         return "forgot_pw";
     }
@@ -97,17 +97,17 @@ public class UserForgotPw {
     }
 
     @PostMapping("/reset_password")
-    public String processResetPassword(HttpServletRequest request, Model model) {
+    public String processResetPassword(HttpServletRequest request, Model model,@ModelAttribute("user") User viewUser) {
         String token = request.getParameter("token");
-        String password = request.getParameter("password");
         User user = userService.get(token);
         if (user == null) {
             model.addAttribute("title", "重設密碼");
             model.addAttribute("message", "Invalid Token");
             return "message";
         } else{
-            userService.updatePassword(user, password);
-            model.addAttribute("message","設定成功");
+            userService.updatePassword(user, viewUser.getMemPassword());
+            model.addAttribute("message","設定成功! ");
+            System.out.println(user.getMemAccount()+" 已重設密碼"+user.getMemPassword());
         }
         return "login";
     }

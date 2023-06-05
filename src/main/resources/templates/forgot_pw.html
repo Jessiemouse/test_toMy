@@ -252,7 +252,7 @@
     <br />
     <!--        <input type="text" placeholder="請輸入帳號" th:field="*{memAccount}" name="memAccount" id="memAccount" />-->
     <!--        <br />-->
-    <input type="text" placeholder="請輸入信箱" th:field="*{memEmail}" name="email" id="email" />
+    <input type="text" placeholder="請輸入註冊時填寫的信箱" th:field="*{memEmail}" name="email" id="email" />
     <br />
 
     <button type="submit" id="mail" value="Send">寄送重設密碼信</button>
@@ -260,9 +260,9 @@
   </form>
 
   <!-- form end -->
-  <div th:if="${error != null }">
+  <div th:if="${message != null }">
     <script th:inline="javascript">
-      alert([[${error}]]);
+      alert([[${message}]]);
     </script>
   </div>
 
